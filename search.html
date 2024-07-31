@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <form action="./search.html" method="get">
+        <input type="text" id="search" name="q">
+        <input type="submit" value="検索">
+    </form>
+    <p id="maintxt"></p>
+    <script>
+        var param = new URLSearchParams(location.search);
+        document.getElementById("search").value = param.get('q');
+        document.title = param.get('q');
+        const texts = ["自分で考えましょう。", "それ前も聞いたよ！", "他の人に聞いて。"];
+        document.getElementById("maintxt").innerHTML = texts[Math.floor(Math.random()*texts.length)];
+    </script>
+</body>
+</html>
